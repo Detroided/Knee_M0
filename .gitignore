@@ -1,0 +1,25 @@
+gitcommit.h
+# debug dir
+/debug
+/debug/Apps
+/debug/Core
+/debug/Drivers
+/Release
+/Release/Apps
+/Release/Core
+/Release/Drivers
+/.settings
+*.launch
+*.metadata
+/TouchGFX/build/*
+
+/Debug
+/Python Scripts/Data
+/Python Scripts/__pycache__
+/Python Scripts/passport/*
+/Python Scripts/loss_metrics.png
+/Python Scripts/model_stateful.keras
+
+.DS_Store
+
+*.PDF
