@@ -69,25 +69,25 @@ I2C EEPROM, объем точно распознать не удалось, [dat
 
 | Пин  | Начальный уровень            | Реконструированная функция                                                               |            |
 | ---- | ---------------------------- | ---------------------------------------------------------------------------------------- | ---------- |
-| PC13 | HIGH                         | Управляемый inverted output: `GPIO_PC13_WriteInverted`                                   | LED        |
-| PC12 | LOW                          | Управляемый output: `GPIO_PC12_Write`                                                    |            |
+| PC13 | HIGH                         | Управляет индикацией диода<br>Управляемый inverted output: `GPIO_PC13_WriteInverted`     | LED        |
+| PC12 | LOW                          | Управляет пином BLE модуля<br>Управляемый output: `GPIO_PC12_Write`                      |            |
 | PC5  | HIGH                         | Управляемый output: `GPIO_PC5_Write`                                                     |            |
 | PC4  | LOW                          | Управляемый inverted output: `GPIO_PC4_WriteInverted`, `GPIO_PC4_WriteInvertedIfChanged` |            |
 | PC2  | HIGH after init              | Управляет транзитором, который активирует U11                                            | U11_CTR_VT |
-| PC1  | HIGH                         | GPIO output, точная внешняя функция не доказана                                          |            |
+| PC1  | HIGH                         | GPIO output, управляет вибромотором                                                      |            |
 | PC0  | LOW                          | GPIO output, точная внешняя функция не доказана                                          |            |
-| PA1  | LOW                          | GPIO output, точная внешняя функция не доказана                                          |            |
+| PA1  | LOW                          | GPIO output, управляет отладочным диодом                                                 |            |
 | PB12 | HIGH                         | GPIO output, точная внешняя функция не доказана                                          |            |
 | PB5  | LOW/HIGH in low-power config | Управляемый inverted output: `GPIO_PB5_WriteInverted`                                    |            |
-| PB3  | LOW                          | GPIO output, точная внешняя функция не доказана                                          | BLE_PWR_EN |
-| PD2  | output                       | GPIO output, точная внешняя функция не доказана                                          | BLE_RST    |
+| PB3  | LOW                          | GPIO output, BLE power EN                                                                | BLE_PWR_EN |
+| PD2  | output                       | GPIO output,  reset BLE                                                                  | BLE_RST    |
 
 ## GPIO inputs / interrupts
 
-| Пин | Режим                        | Реконструированная функция                                                                                                    |                    |
-| --- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| PB4 | input                        | Дискретный вход, точная функция не доказана                                                                                   | INDICATION_PWR_CTR |
-| PB8 | EXTI rising/falling, no pull | Внешний interrupt/input; есть также `GPIO_PB8_WriteInverted` в safety path, нужна ручная проверка конфигурационного конфликта | MPU6050_INT        |
+| Пин | Режим                        | Реконструированная функция                                                                                                                             |                    |
+| --- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| PB4 | input                        | Дискретный вход, наналичия индикатор питания                                                                                                           | INDICATION_PWR_CTR |
+| PB8 | EXTI rising/falling, no pull | Прерывание от MPU6050<br>Внешний interrupt/input; есть также `GPIO_PB8_WriteInverted` в safety path, нужна ручная проверка конфигурационного конфликта | MPU6050_INT        |
 
 
 ## Low-power
