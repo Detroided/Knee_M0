@@ -102,8 +102,9 @@ int main(void)
   MX_SPI1_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
-  MX_WWDG_Init();
+ // MX_WWDG_Init();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(GPIOC, VIBRO_MOTOR_CTR_Pin, GPIO_PIN_RESET);
   App_Init();
 
   /* USER CODE END 2 */
